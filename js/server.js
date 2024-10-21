@@ -22,14 +22,14 @@ app.post("/names", (req, res) => {
 // create operation
 
 // mongodb stuff below
-// connection string
-("mongodb+srv://tyler:sQXzIsBDxW3kUsL7@cluster0.r5q1t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 const MongoClient = require("mongodb").MongoClient;
+var connectionString =
+  "mongodb+srv://tyler:sQXzIsBDxW3kUsL7@cluster0.r5q1t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-MongoClient.connect(connectionString)
-  .then(console.log("Connected to Database"))
-  .catch((error) => console.error(error));
-
-// MongoClient.connect('mongodb-connection-string', (err, client) => {
-
+// MongoClient.connect(connectionString, (err, client) => {
+//   console.log("Connected to Database");
 // });
+
+MongoClient.connect(connectionString).then(
+  console.log('Connected to Database')
+).catch(error => console.error(error));
