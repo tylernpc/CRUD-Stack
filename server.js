@@ -11,19 +11,25 @@ app.use(express.urlencoded({ extended: true }));
 
 // read operation
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + "/index.html");
 });
 // read operation
 
 // create operation
 app.post("/names", (req, res) => {
-    console.log(req.body);
-})
+  console.log(req.body);
+});
 // create operation
 
 // mongodb stuff below
-const MongoClient = require('mongodb').MongoClient;
+// connection string
+("mongodb+srv://tyler:sQXzIsBDxW3kUsL7@cluster0.r5q1t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+const MongoClient = require("mongodb").MongoClient;
 
-MongoClient.connect('mongodb-connection-string', (err, client) => {
+MongoClient.connect(connectionString)
+  .then(console.log("Connected to Database"))
+  .catch((error) => console.error(error));
 
-});
+// MongoClient.connect('mongodb-connection-string', (err, client) => {
+
+// });
