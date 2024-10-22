@@ -13,23 +13,20 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
-// read operation
+
+app.use(express.static("public"));
 
 // create operation
 app.post("/names", (req, res) => {
   console.log(req.body);
 });
-// create operation
 
 // mongodb stuff below
 const MongoClient = require("mongodb").MongoClient;
 var connectionString =
   "mongodb+srv://tyler:sQXzIsBDxW3kUsL7@cluster0.r5q1t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-// MongoClient.connect(connectionString, (err, client) => {
-//   console.log("Connected to Database");
-// });
-
 MongoClient.connect(connectionString).then(
   console.log('Connected to Database')
-).catch(error => console.error(error));
+    const db = client.db('Project 0')
+)
